@@ -15,8 +15,15 @@ function Address(street, city, state) {
 Contact.prototype.fullName = function(){
   return this.firstName + " " + this.lastName;
 }
-Address.prototype.fullAddress = funcion(){
+Address.prototype.fullAddress = function(){
   return this.street + "," + this.city + "," + this.state;
+}
+function resetFields(){
+  $("input#new-first-name").val("");
+  $("input#new-last-name").val("");
+  $("input.new-street").val("");
+  $("input.new-city").val("");
+  $("input.new-state").val("");
 }
 // user interface logic
 $(document).ready(function() {
@@ -64,15 +71,11 @@ $(document).ready(function() {
       $(".last-name").text(newContact.lastName);
       $("ul#addresses").text("");
       newContact.addresses.forEach(function(address) {
-        $("ul#addresses").append("<li>" adress.fullAddress() "</li>");
+        $("ul#addresses").append("<li>" + address.fullAddress() + "</li>");
       });
-    });
 
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input.new-street").val("");
-    $("input.new-city").val("");
-    $("input.new-state").val("");
+    });
+resetFields();
   });
 
   // $(document).ready(function() {
